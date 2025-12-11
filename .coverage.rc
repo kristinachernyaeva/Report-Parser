@@ -1,0 +1,9 @@
+[run]
+branch = True
+
+[report]
+# Строки, которые не считаем "пропущенными"
+exclude_lines =
+    pragma: no cover
+    @abstractmethod
+    def .*\(.*\):\n        pass
