@@ -1,6 +1,6 @@
 import argparse
 from typing import Any
-from tabulate import tabulate # type:ignore
+from tabulate import tabulate
 from report_app.exceptions import CSVFileReadingError
 from report_app.reports import PerformanceReport
 from report_app.parser import get_data_from_csv_files
