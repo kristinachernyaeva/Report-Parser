@@ -7,6 +7,7 @@ git clone git@github.com:kristinachernyaeva/Report-Parser.git
 python3 -m venv .venv
 source .venv/bin/activate # для Linux/Mac
 .venv\Scripts\activate.bat # для Windows
+cd Report-Parser
 pip install -r requirements.txt
 ```
 
