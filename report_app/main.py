@@ -1,22 +1,29 @@
 import argparse
-from typing import Any
+from typing import Any, Mapping, Type
 from tabulate import tabulate
 from report_app.exceptions import CSVFileReadingError
-from report_app.reports import PerformanceReport
+from report_app.reports import PerformanceReport, Report
 from report_app.parser import get_data_from_csv_files
 
-report_methods = {
+
+report_methods: Mapping[str, Type[Report]] = {
         "performance": PerformanceReport,
     }
 
-available_reports = list(report_methods.keys())
+
+def get_available_reports(report_methods: Mapping[str, Type[Report]]) -> list[str]:
+    return list(report_methods.keys())
+
 
 def dict_to_table_rows(data: dict) -> list[list[Any]]:
     """Преобразовать словарь во вложенный список"""
     return [[key, value] for key, value in data.items()]
 
-def parse_args():
+
+def parse_args() -> argparse.Namespace:
     """Получение аргументов командной строки"""
+    available_reports = get_available_reports(report_methods)
+
     parser = argparse.ArgumentParser(
         description="performance", 
         epilog="Примеры использования: python main.py --files data.csv --report performance")
