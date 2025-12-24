@@ -10,7 +10,8 @@ source .venv/bin/activate # для Linux/Mac
 .venv\Scripts\activate.bat # для Windows
 
 cd Report-Parser
-pip install -r requirements.txt
+# Установить зависимости
+pip install .
 ```
 
 Примеры запуска скрипта:
